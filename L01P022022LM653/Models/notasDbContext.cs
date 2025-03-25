@@ -8,5 +8,9 @@ namespace L01P022022LM653.Models
         {
             
         }
+        public DbSet <facultades> facultades { get; set; }
+        public DbSet <materias> materias { get; set; }
+        public DbSet<departamentos> departamentos { get; set; }
+        public DbSet <alumnos> alumnos { get; set; }
     }
 }
