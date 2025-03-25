@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="~/L01P022022LM653.styles.css" asp-append-version="true" />
 </head>
 <style>
-    .hamburger-menu {
+    .notas-menu {
         position: fixed;
         top: 15px;
         left: 15px;
         z-index: 1000;
     }
 
-        .hamburger-menu .nav-menu {
+        .notas-menu .nav-menu {
             display: none;
             position: absolute;
             top: 40px;
@@ -28,15 +28,15 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .hamburger-menu input[type="checkbox"] {
+        .notasmenu input[type="checkbox"] {
             display: none;
         }
 
-            .hamburger-menu input[type="checkbox"]:checked ~ .nav-menu {
+            .notas-menu input[type="checkbox"]:checked ~ .nav-menu {
                 display: block;
             }
 
-    .hamburger-icon {
+    .notas-icon {
         font-size: 24px;
         cursor: pointer;
         color: #ffff;
@@ -87,32 +87,35 @@
 </style>
 </head>
 <body>
-    <div class="hamburger-menu">
-        <label class="hamburger-icon" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <!-- Menú notas-->
+    <div class="notas-menu">
+        <label class="notas-icon" for="menu-toggle"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="menu-toggle" />
         <div class="nav-menu">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="text-dark">Inicio</a>
-            <a asp-area="" asp-controller="Login" asp-action="Index" class="text-dark">Login</a>
-            <a asp-area="" asp-controller="Home" asp-action="Menu" class="text-dark">Menú</a>
-            <a asp-area="" asp-controller="Orden" asp-action="Index" class="text-dark">Orden</a>
-            <a asp-area="" asp-controller="Home" asp-action="About" class="text-dark">Nosotros</a>
-            <a asp-area="" asp-controller="Home" asp-action="Contacto" class="text-dark">Contacto</a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-dark">Privacidad</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-area="" asp-controller="alumnos" asp-action="Index">Alumnos</a>
+            <a asp-area="" asp-controller="departamentos" asp-action="Index">Departamentos</a>
+            <a asp-area="" asp-controller="facultades" asp-action="Index">Facultades</a>
+            <a asp-area="" asp-controller="materias" asp-action="Index">Materias</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </div>
+
+    <!-- Contenido de las vistas -->
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
-
+    <!-- Footer -->
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - Laboratorio1_P2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Mi Aplicación - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
